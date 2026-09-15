@@ -53,9 +53,20 @@ Models verified to work with tool calling (tested 2026-09; check your gateway's 
 
 See [providers.md](providers.md) (self-hosted LiteLLM, other Anthropic-compatible services).
 
-## GUI clients
+## GUI clients (any OpenAI-compatible client works)
 
-`cherry-studio/generator.html` is an offline helper bundled here: paste your key, get a `cherrystudio://` link that configures [Cherry Studio](https://github.com/CherryHQ/cherry-studio) in one click. See `cherry-studio/guide.html` (Chinese).
+Cherry Studio, NextChat, Chatbox, LobeChat, Open WebUI — the recipe is the same everywhere:
+
+| Field | Value |
+|---|---|
+| Provider type | OpenAI (or "OpenAI-compatible") |
+| Base URL | `<your gateway>/v1` |
+| API key | your own key |
+| Model | full ID, e.g. `deepseek/deepseek-v4-pro` |
+
+> ⚠️ Don't edit the built-in "OpenAI" entry (its host is hard-coded to api.openai.com) — **add a new custom provider** instead.
+
+**If you happen to use Cherry Studio**: `cherry-studio/generator.html` is an offline helper bundled here — paste your key, get a `cherrystudio://` link that fills all of the above in one click (the key never leaves your browser). Step-by-step guide: `cherry-studio/guide.html` (Chinese).
 
 ## FAQ
 

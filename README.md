@@ -77,9 +77,20 @@ MODEL=deepseek/deepseek-v4-pro              # 完整 ID(带厂商前缀)
 
 见 [providers.md](providers.md)(自建 LiteLLM、其它 Anthropic 兼容服务等)。
 
-## 图形客户端(不写命令的人)
+## 图形客户端(任何 OpenAI 兼容客户端都行)
 
-`cherry-studio/generator.html` 是本仓库自带的一个**离线小工具**:粘贴你的 Key,生成一条 `cherrystudio://` 链接,点一下就把服务商配置写进 [Cherry Studio](https://github.com/CherryHQ/cherry-studio)。具体用法见 `cherry-studio/guide.html`。
+Cherry Studio、NextChat、Chatbox、LobeChat、Open WebUI…… 做法全都一样,只填两个字段:
+
+| 字段 | 填什么 |
+|---|---|
+| 服务商类型 | OpenAI(或"OpenAI 兼容") |
+| 接口地址 / Base URL | `<你的网关地址>/v1`(要带 `/v1`) |
+| API Key | 你自己的 Key |
+| 模型名 | 完整 ID,例如 `deepseek/deepseek-v4-pro` |
+
+> ⚠️ 不要改客户端自带的「OpenAI」那一项(它的地址固定是 api.openai.com),要**新加一个自定义服务商**。
+
+**如果你正好在用 Cherry Studio**:仓库里附带一个离线小工具 `cherry-studio/generator.html` —— 粘贴你的 Key,生成一条 `cherrystudio://` 链接,点一下就把上面这些自动配好(Key 只在本地浏览器里,不上传)。详细步骤见 `cherry-studio/guide.html`。
 
 ## 常见问题
 

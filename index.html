@@ -1,40 +1,74 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Claude Code / Codex 接任意网关</title>
+<title>一条命令,把 AI 客户端接到任意网关</title>
 <style>
 @font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 55 Regular");font-weight:400}
 @font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 95 ExtraBold");font-weight:800}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#F5F5F7;color:#0E0E12;font-family:"PHT","Alibaba PuHuiTi 2.0","PingFang SC",sans-serif;font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto;padding:26px 20px 64px}
+.wrap{max-width:780px;margin:0 auto;padding:26px 20px 64px}
 .hero{background:linear-gradient(160deg,#0F131A,#141C27 60%,#182231);color:#fff;border-radius:18px;padding:28px 26px}
-.hero h1{margin:0 0 8px;font-size:25px;font-weight:800;letter-spacing:-.02em}
-.hero p{color:#B9C2D0;font-size:14.5px}
-a.card{display:block;background:#fff;border:1px solid #E3E3EA;border-radius:16px;padding:18px 20px;margin:14px 0;text-decoration:none;color:inherit}
+.hero h1{margin:0 0 8px;font-size:26px;font-weight:800;letter-spacing:-.02em}
+.hero p{color:#B9C2D0;font-size:15px}
+h2{font-size:20px;margin:30px 0 10px;padding-top:20px;border-top:1px solid #E3E3EA}
+h2:first-of-type{border-top:none;padding-top:0}
+p{margin:10px 0}
+a.card{display:block;background:#fff;border:1px solid #E3E3EA;border-radius:16px;padding:16px 18px;margin:12px 0;text-decoration:none;color:inherit}
 a.card:hover{border-color:#14802E}
-a.card b{font-size:17.5px;display:block;margin-bottom:4px}
+a.card b{font-size:17px;display:block;margin-bottom:3px}
 a.card span{color:#6E6E7E;font-size:14.5px}
 pre{background:#0F131A;color:#D7DEE8;border-radius:12px;padding:15px 17px;margin:12px 0;overflow-x:auto;font:13px/1.75 ui-monospace,Menlo,Consolas,monospace}
-h2{font-size:19px;margin:28px 0 10px}
 code{background:#F0F0F3;border:1px solid #E3E3EA;border-radius:6px;padding:1px 6px;font:13.5px/1.6 ui-monospace,Menlo,monospace}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;table-layout:fixed}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #ECECF1;vertical-align:top;word-break:break-word}
+th{background:#F0F0F3;font-size:13.5px;color:#52525F;font-weight:600}
+tr:last-child td{border-bottom:none}
+.tip{background:#E5FBEA;border-left:4px solid #14802E;border-radius:10px;padding:12px 15px;margin:14px 0;color:#0B4A26;font-size:15px}
+ul,ol{margin:10px 0 10px 22px}li{margin:6px 0}
 footer{margin-top:28px;padding-top:14px;border-top:1px solid #E3E3EA;color:#6E6E7E;font-size:13px}
+@media (max-width:600px){.hero h1{font-size:21px}table{font-size:14px}}
 </style></head><body><div class="wrap">
+
 <div class="hero">
-  <h1>Claude Code / Codex 接任意网关</h1>
-  <p>填三行配置、跑一条命令,把终端里的编码 agent 接到你自己选的任何 API 网关。不绑定任何一家。</p>
+  <h1>一条命令,把 AI 客户端接到任意网关</h1>
+  <p>终端里的编码 agent(Claude Code / Codex)一条命令接上;图形客户端只填两个字段。不绑定任何一家服务。</p>
 </div>
 
-<h2>上手(30 秒)</h2>
+<h2>30 秒上手</h2>
 <pre>git clone https://github.com/zhenhuaw404-ux/claude-code-any-gateway.git
 cd claude-code-any-gateway
 cp config.example .env     # 填三行:网关地址 / Key / 模型名
-./run.sh                   # 启动 Claude Code
+./run.sh                   # Claude Code
 ./run-codex.sh exec "say ok"   # Codex</pre>
 
-<h2>配套页面</h2>
-<a class="card" href="cherry-studio/generator.html"><b>Cherry Studio 一键接入生成器 →</b><span>粘贴你的 Key,生成一条链接,点一下就把服务商配好(离线运行,Key 不出本机)</span></a>
-<a class="card" href="cherry-studio/guide.html"><b>Cherry Studio 使用指南 →</b><span>从建账户、充值到跑通、选模型、报错对照</span></a>
-<a class="card" href="https://github.com/zhenhuaw404-ux/claude-code-any-gateway"><b>看仓库 / 提问题 →</b><span>源码、常见报错对照表、其它网关的填法</span></a>
+<h2>你用什么客户端?三种情况都覆盖</h2>
 
-<footer>独立工具,与 Anthropic、OpenAI 无关联 · 请求发往你在配置里填写的网关</footer>
+<a class="card" href="https://github.com/zhenhuaw404-ux/claude-code-any-gateway">
+  <b>① 终端里的编码 agent(Claude Code / Codex)</b>
+  <span>用仓库里的脚本:一条命令设好接口地址、Key、模型;只在本次运行生效,不写进你的全局配置</span>
+</a>
+
+<a class="card" href="https://github.com/zhenhuaw404-ux/claude-code-any-gateway/blob/main/providers.md">
+  <b>② 任何 OpenAI 兼容的图形客户端</b>
+  <span>Cherry Studio · NextChat · Chatbox · LobeChat · Open WebUI …… 做法都一样,只填两个字段:<br>
+  接口地址 <code>https://你的网关/v1</code> + 你的 Key;模型名写完整 ID。各网关怎么填见 providers.md</span>
+</a>
+
+<a class="card" href="https://github.com/zhenhuaw404-ux/claude-code-any-gateway/blob/main/troubleshoot.md">
+  <b>③ 已经在接、但老报错</b>
+  <span>报错对照表:401 无效 Key / 402 余额 / 403 未开通 / 404 模型名 / 429 限流 / 400 不支持工具调用 / 地址写错</span>
+</a>
+
+<h2>三个必踩的坑(先看能省半小时)</h2>
+<table>
+  <tr><th style="width:32%">坑</th><th>怎么回事</th></tr>
+  <tr><td>模型名写简称</td><td><code>deepseek-chat</code> 会 404;必须写完整 ID(带厂商前缀),例如 <code>deepseek/deepseek-v4-pro</code></td></tr>
+  <tr><td>用不支持工具调用的模型跑 Agent</td><td>写作、角色扮演类模型(名字带 <code>magnum</code>、<code>dolphin</code> 这类)不支持工具调用,一用就报 <code>400</code></td></tr>
+  <tr><td>余额为 0</td><td>多数网关是预扣计费,余额为 0 时连免费模型也会返回 <code>402</code></td></tr>
+</table>
+
+<div class="tip"><b>如果你正好在用 Cherry Studio</b>:仓库里附带一个离线小工具,粘贴你的 Key 就生成一条链接,点一下自动配好服务商 —— <a href="cherry-studio/generator.html">cherry-studio/generator.html</a>(Key 只在你的浏览器里,不上传)。<br>
+<b>用别的客户端也完全一样</b>:上面第 ② 条那两个字段填好即可。</div>
+
+<footer>独立工具,与 Anthropic、OpenAI 及各客户端项目无关联 · 请求发往你在配置里填写的网关</footer>
 </div></body></html>
