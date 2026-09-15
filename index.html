@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Code / Codex 接任意网关</title>
+<style>
+@font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 55 Regular");font-weight:400}
+@font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 95 ExtraBold");font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#F5F5F7;color:#0E0E12;font-family:"PHT","Alibaba PuHuiTi 2.0","PingFang SC",sans-serif;font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:26px 20px 64px}
+.hero{background:linear-gradient(160deg,#0F131A,#141C27 60%,#182231);color:#fff;border-radius:18px;padding:28px 26px}
+.hero h1{margin:0 0 8px;font-size:25px;font-weight:800;letter-spacing:-.02em}
+.hero p{color:#B9C2D0;font-size:14.5px}
+a.card{display:block;background:#fff;border:1px solid #E3E3EA;border-radius:16px;padding:18px 20px;margin:14px 0;text-decoration:none;color:inherit}
+a.card:hover{border-color:#14802E}
+a.card b{font-size:17.5px;display:block;margin-bottom:4px}
+a.card span{color:#6E6E7E;font-size:14.5px}
+pre{background:#0F131A;color:#D7DEE8;border-radius:12px;padding:15px 17px;margin:12px 0;overflow-x:auto;font:13px/1.75 ui-monospace,Menlo,Consolas,monospace}
+h2{font-size:19px;margin:28px 0 10px}
+code{background:#F0F0F3;border:1px solid #E3E3EA;border-radius:6px;padding:1px 6px;font:13.5px/1.6 ui-monospace,Menlo,monospace}
+footer{margin-top:28px;padding-top:14px;border-top:1px solid #E3E3EA;color:#6E6E7E;font-size:13px}
+</style></head><body><div class="wrap">
+<div class="hero">
+  <h1>Claude Code / Codex 接任意网关</h1>
+  <p>填三行配置、跑一条命令,把终端里的编码 agent 接到你自己选的任何 API 网关。不绑定任何一家。</p>
+</div>
+
+<h2>上手(30 秒)</h2>
+<pre>git clone https://github.com/zhenhuaw404-ux/claude-code-any-gateway.git
+cd claude-code-any-gateway
+cp config.example .env     # 填三行:网关地址 / Key / 模型名
+./run.sh                   # 启动 Claude Code
+./run-codex.sh exec "say ok"   # Codex</pre>
+
+<h2>配套页面</h2>
+<a class="card" href="cherry-studio/generator.html"><b>Cherry Studio 一键接入生成器 →</b><span>粘贴你的 Key,生成一条链接,点一下就把服务商配好(离线运行,Key 不出本机)</span></a>
+<a class="card" href="cherry-studio/guide.html"><b>Cherry Studio 使用指南 →</b><span>从建账户、充值到跑通、选模型、报错对照</span></a>
+<a class="card" href="https://github.com/zhenhuaw404-ux/claude-code-any-gateway"><b>看仓库 / 提问题 →</b><span>源码、常见报错对照表、其它网关的填法</span></a>
+
+<footer>独立工具,与 Anthropic、OpenAI 无关联 · 请求发往你在配置里填写的网关</footer>
+</div></body></html>

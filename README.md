@@ -79,7 +79,7 @@ MODEL=deepseek/deepseek-v4-pro              # 完整 ID(带厂商前缀)
 
 ## 图形客户端(不写命令的人)
 
-`cherry-studio-一键接入.html` 是本仓库自带的一个**离线小工具**:粘贴你的 Key,生成一条 `cherrystudio://` 链接,点一下就把服务商配置写进 [Cherry Studio](https://github.com/CherryHQ/cherry-studio)。具体用法见 `cherry-studio-使用指南.html`。
+`cherry-studio/generator.html` 是本仓库自带的一个**离线小工具**:粘贴你的 Key,生成一条 `cherrystudio://` 链接,点一下就把服务商配置写进 [Cherry Studio](https://github.com/CherryHQ/cherry-studio)。具体用法见 `cherry-studio/guide.html`。
 
 ## 常见问题
 

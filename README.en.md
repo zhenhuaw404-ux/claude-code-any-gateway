@@ -55,7 +55,7 @@ See [providers.md](providers.md) (self-hosted LiteLLM, other Anthropic-compatibl
 
 ## GUI clients
 
-`cherry-studio-一键接入.html` is an offline helper bundled here: paste your key, get a `cherrystudio://` link that configures [Cherry Studio](https://github.com/CherryHQ/cherry-studio) in one click. See `cherry-studio-使用指南.html` (Chinese).
+`cherry-studio/generator.html` is an offline helper bundled here: paste your key, get a `cherrystudio://` link that configures [Cherry Studio](https://github.com/CherryHQ/cherry-studio) in one click. See `cherry-studio/guide.html` (Chinese).
 
 ## FAQ
 
