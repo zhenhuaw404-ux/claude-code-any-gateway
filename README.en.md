@@ -55,7 +55,7 @@ See [providers.md](providers.md) (self-hosted LiteLLM, other Anthropic-compatibl
 
 ## GUI clients (any OpenAI-compatible client works)
 
-Cherry Studio, NextChat, Chatbox, LobeChat, Open WebUI — the recipe is the same everywhere:
+NextChat, Chatbox, LobeChat, Open WebUI, Cherry Studio — any OpenAI-compatible client follows the same recipe:
 
 | Field | Value |
 |---|---|
@@ -66,7 +66,7 @@ Cherry Studio, NextChat, Chatbox, LobeChat, Open WebUI — the recipe is the sam
 
 > ⚠️ Don't edit the built-in "OpenAI" entry (its host is hard-coded to api.openai.com) — **add a new custom provider** instead.
 
-**If you happen to use Cherry Studio**: `cherry-studio/generator.html` is an offline helper bundled here — paste your key, get a `cherrystudio://` link that fills all of the above in one click (the key never leaves your browser). Step-by-step guide: `cherry-studio/guide.html` (Chinese).
+**Convenience helpers**: the `clients/` folder collects optional per-client shortcuts — currently `clients/cherry-studio/generator.html` (paste your key, get a one-click config link; the key never leaves your browser) with a Chinese walkthrough in `clients/cherry-studio/guide.html`. More clients will be added as needed; the table above is all you actually need.
 
 ## FAQ
 

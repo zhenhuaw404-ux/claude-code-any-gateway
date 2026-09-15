@@ -50,7 +50,7 @@ cp config.example .env     # 填三行:网关地址 / Key / 模型名
 
 <a class="card" href="https://github.com/zhenhuaw404-ux/claude-code-any-gateway/blob/main/providers.md">
   <b>② 任何 OpenAI 兼容的图形客户端</b>
-  <span>Cherry Studio · NextChat · Chatbox · LobeChat · Open WebUI …… 做法都一样,只填两个字段:<br>
+  <span>NextChat · Chatbox · LobeChat · Open WebUI · Cherry Studio …… 任何 OpenAI 兼容的客户端做法都一样,只填两个字段:<br>
   接口地址 <code>https://你的网关/v1</code> + 你的 Key;模型名写完整 ID。各网关怎么填见 providers.md</span>
 </a>
 
@@ -67,8 +67,8 @@ cp config.example .env     # 填三行:网关地址 / Key / 模型名
   <tr><td>余额为 0</td><td>多数网关是预扣计费,余额为 0 时连免费模型也会返回 <code>402</code></td></tr>
 </table>
 
-<div class="tip"><b>如果你正好在用 Cherry Studio</b>:仓库里附带一个离线小工具,粘贴你的 Key 就生成一条链接,点一下自动配好服务商 —— <a href="cherry-studio/generator.html">cherry-studio/generator.html</a>(Key 只在你的浏览器里,不上传)。<br>
-<b>用别的客户端也完全一样</b>:上面第 ② 条那两个字段填好即可。</div>
+<div class="tip"><b>偏好图形界面?</b>上面第 ② 条那两个字段填好即可,所有 OpenAI 兼容客户端通用。<br>
+另外,<code>clients/</code> 目录里收录了几个客户端的专属配置助手(目前有 Cherry Studio 的<a href="clients/cherry-studio/generator.html">一键配置生成器</a>,后续按需增加)——它们都只是"少填几个字段"的便利工具,不是必须。</div>
 
 <footer>独立工具,与 Anthropic、OpenAI 及各客户端项目无关联 · 请求发往你在配置里填写的网关</footer>
 </div></body></html>

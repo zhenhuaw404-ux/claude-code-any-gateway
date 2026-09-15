@@ -15,7 +15,7 @@ MODEL=deepseek/deepseek-v4-pro
 
 - 同时提供 Anthropic(`/v1/messages`)、OpenAI(`/v1/chat/completions`)、Responses(`/v1/responses`)三套协议;
 - 一个 Key 同时覆盖对话 / 图像 / 视频 / 语音 / 转写 / 向量;
-- 接入指引见同目录的 `cherry-studio-使用指南.html`。
+- 接入指引(通用):见本仓库 [README](README.md) 的"图形客户端"一节;Cherry Studio 的专属助手在 `clients/cherry-studio/`。
 
 ## 自建 LiteLLM 代理
 

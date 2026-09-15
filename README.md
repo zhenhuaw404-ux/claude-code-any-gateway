@@ -14,6 +14,16 @@
 
 ---
 
+## 先对齐三个词
+
+| 词 | 指什么 | 例子 |
+|---|---|---|
+| **客户端** | 装在你这边的程序,发起请求 | Claude Code、Codex、Cherry Studio、NextChat |
+| **网关** | 中间那一层,转发请求、记账 | 你在 `.env` 里填的那个(或自建 LiteLLM) |
+| **上游** | 真正跑模型的一方 | DeepSeek、OpenAI、Anthropic 等原厂 |
+
+流程:**客户端 → 网关 → 上游**。这个仓库解决的是"客户端怎么连上网关"这一段。
+
 ## 为什么需要它
 
 Claude Code 默认只连 Anthropic 官方,Codex 默认只连 OpenAI。想接别家,你要自己处理:
@@ -79,7 +89,7 @@ MODEL=deepseek/deepseek-v4-pro              # 完整 ID(带厂商前缀)
 
 ## 图形客户端(任何 OpenAI 兼容客户端都行)
 
-Cherry Studio、NextChat、Chatbox、LobeChat、Open WebUI…… 做法全都一样,只填两个字段:
+NextChat、Chatbox、LobeChat、Open WebUI、Cherry Studio…… 任何 OpenAI 兼容的客户端做法都一样,只填两个字段:
 
 | 字段 | 填什么 |
 |---|---|
@@ -90,7 +100,7 @@ Cherry Studio、NextChat、Chatbox、LobeChat、Open WebUI…… 做法全都一
 
 > ⚠️ 不要改客户端自带的「OpenAI」那一项(它的地址固定是 api.openai.com),要**新加一个自定义服务商**。
 
-**如果你正好在用 Cherry Studio**:仓库里附带一个离线小工具 `cherry-studio/generator.html` —— 粘贴你的 Key,生成一条 `cherrystudio://` 链接,点一下就把上面这些自动配好(Key 只在本地浏览器里,不上传)。详细步骤见 `cherry-studio/guide.html`。
+**图形客户端的便利助手**:`clients/` 目录按客户端收录"少填几个字段"的小工具 —— 目前有 Cherry Studio 的 `clients/cherry-studio/generator.html`(粘贴 Key 生成一条一键配置链接,Key 只在本地浏览器里)与配套说明 `clients/cherry-studio/guide.html`;其它客户端后续按需增加。**这些都不是必须的**,上面的表格填一遍就够了。
 
 ## 常见问题
 
