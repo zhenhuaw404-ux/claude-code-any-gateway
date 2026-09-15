@@ -1,0 +1,19 @@
+# 复制这个文件为 .env,然后填三样东西即可
+#   cp config.example .env
+
+# 1) 网关地址:结尾不要带 /v1(脚本会用 <地址>/v1/messages)
+#    deCloud 示例: https://macdecloud.com
+#    要求:网关必须提供 Anthropic 兼容接口(/v1/messages)。
+#    只提供 OpenAI 兼容接口(/v1/chat/completions)的网关,需要额外的适配层才能接 Claude Code。
+GATEWAY_BASE_URL=https://macdecloud.com
+
+# 2) 你的 Key(dcld-sk- 开头的那种)
+GATEWAY_API_KEY=在这里粘贴你的Key
+
+# 3) 模型名:必须写「完整 ID,带厂商前缀」
+#    只写简称(如 deepseek-chat)通常会返回 404 model_not_found
+#    注意:要跑 Agent / Claude Code,模型必须支持「工具调用」,写作/角色扮演类模型不行
+MODEL=deepseek/deepseek-v4-pro
+
+# 可选:如果你用的不是 claude 命令(比如本地装了指定版本),在这里指路径
+# CLAUDE_BIN=/path/to/claude

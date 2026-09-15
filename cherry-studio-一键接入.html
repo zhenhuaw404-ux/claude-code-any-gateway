@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一键接入 Cherry Studio · 自助生成</title>
+<style>
+@font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 55 Regular");font-weight:400}
+@font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 65 Medium");font-weight:500}
+@font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 75 SemiBold");font-weight:600}
+@font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 95 ExtraBold");font-weight:800}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F5F5F7;--card:#fff;--ink:#0E0E12;--mid:#52525F;--low:#6E6E7E;--line:#E3E3EA;--g50:#E5FBEA;--g800:#14802E;--code:#F0F0F3}
+body{background:var(--bg);color:var(--ink);font-family:"PHT","Alibaba PuHuiTi 2.0","HarmonyOS Sans SC","PingFang SC",sans-serif;font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:26px 20px 64px}
+.hero{background:linear-gradient(160deg,#0F131A,#141C27 60%,#182231);color:#fff;border-radius:18px;padding:26px 26px 24px}
+.hero .tag{display:inline-block;font-size:12.5px;letter-spacing:.08em;color:#8CF3A6;border:1px solid rgba(140,243,166,.4);border-radius:999px;padding:3px 12px}
+.hero h1{margin:12px 0 6px;font-size:25px;font-weight:800;letter-spacing:-.02em}
+.hero p{color:#B9C2D0;font-size:14.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:16px 0}
+h2{font-size:19px;font-weight:700;margin:26px 0 10px}
+label{display:block;font-size:14.5px;color:var(--mid);margin:0 0 8px}
+input[type=text]{width:100%;font:inherit;font-size:15.5px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+input[type=text]:focus{outline:none;border-color:#14802E;box-shadow:0 0 0 3px rgba(20,128,46,.12)}
+button{font:inherit;font-size:15.5px;font-weight:600;background:#0E0E12;color:#fff;border:none;border-radius:12px;padding:12px 22px;cursor:pointer;margin-top:12px}
+button.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);font-weight:500}
+button:hover{opacity:.92}
+#out{display:none;margin-top:16px}
+.linkbox{background:#0F131A;border-radius:12px;padding:14px 16px;word-break:break-all}
+.linkbox a{color:#8CF3A6;font:13px/1.7 ui-monospace,Menlo,Consolas,monospace;text-decoration:none;word-break:break-all}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+p{margin:10px 0}
+b{font-weight:600}
+code{background:var(--code);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font:13.5px/1.6 ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid #ECECF1;vertical-align:top;word-break:break-word}
+th{background:var(--code);font-size:13.5px;color:var(--mid);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tip{background:var(--g50);border-left:4px solid var(--g800);border-radius:10px;padding:12px 15px;margin:14px 0;color:#0B4A26;font-size:15px}
+.warn{background:#FFF7E6;border-left:4px solid #B7791F;border-radius:10px;padding:12px 15px;margin:14px 0;color:#6B4A11;font-size:15px}
+ol,ul{margin:10px 0 10px 22px}li{margin:6px 0}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--low);font-size:13px}
+@media (max-width:600px){.hero h1{font-size:21px}.card{padding:16px 16px}}
+</style></head><body><div class="wrap">
+
+<div class="hero">
+  <span class="tag">自助工具</span>
+  <h1>一键接入 Cherry Studio</h1>
+  <p>把你的 API Key 填进去,生成一条链接,点一下就能配好 —— 不用手动填地址和 Key</p>
+</div>
+
+<div class="card">
+  <label for="k">你的 deCloud API Key(<code>dcld-sk-</code> 开头)</label>
+  <input type="text" id="k" placeholder="dcld-sk-..." autocomplete="off" spellcheck="false">
+  <button onclick="gen()">生成接入链接</button>
+  <div id="out">
+    <p style="margin-top:18px"><b>① 点下面这条链接</b>(会把配置直接写进 Cherry Studio):</p>
+    <div class="linkbox"><a id="lnk" href="#">—</a></div>
+    <div class="row">
+      <button class="ghost" onclick="cp()">复制链接</button>
+      <span id="cpmsg" style="color:var(--g800);font-size:14px"></span>
+    </div>
+    <p style="margin-top:14px"><b>② 然后在 Cherry Studio 里</b>:设置 → 模型服务商 → 找到 <b>deCloud</b> → 点「获取模型列表」→ 选一个模型 → 开始对话。</p>
+  </div>
+  <div class="warn"><b>放心:这个页面在你自己的浏览器里运行,Key 不会上传到任何服务器</b>(页面不联网;链接里的 Key 也只在你本机使用)。</div>
+</div>
+
+<h2>用之前先确认两件事</h2>
+<ol>
+  <li><b>装了 Cherry Studio 桌面版</b>(Windows / macOS)。手机上、网页版都没有这个一键协议 —— 那种情况请看下面的手动配置。</li>
+  <li><b>先把 Cherry Studio 窗口打开、放在最前面</b>,再点链接。它<b>不会自动把窗口调到前台</b>,否则你会以为"点了没反应"。</li>
+</ol>
+
+<h2>点完链接会看到什么</h2>
+<ol>
+  <li>Cherry Studio 跳到「设置 → 模型服务商」,弹出确认框:<b>「是否要为 deCloud 添加 API 密钥?」</b> → <b>点确认</b>;</li>
+  <li>左上角提示「成功为 deCloud 添加 API 密钥」,列表里出现 <b>deCloud</b>;</li>
+  <li>点它右边的<b>「获取模型列表」</b>,拉到模型后选一个(推荐见下)就能用。</li>
+</ol>
+
+<h2>选哪个模型</h2>
+<table>
+  <tr><th style="width:42%">场景</th><th>推荐模型</th></tr>
+  <tr><td>日常对话 / 通用</td><td><code>deepseek/deepseek-v4-pro</code>(便宜、上下文大)</td></tr>
+  <tr><td>要跑 Agent / Claude Code 这类会自动调用工具的功能</td><td><code>deepseek/deepseek-v4-pro</code> · <code>deepseek/deepseek-v4-flash</code> · <code>moonshotai/kimi-k3</code> · <code>z-ai/glm-5.2</code> · <code>qwen/qwen3-coder</code> · <code>anthropic/claude-sonnet-4.5</code> · <code>openai/gpt-5</code></td></tr>
+</table>
+<div class="tip"><b>要点</b>:Agent / Claude Code 靠"工具调用"干活,所以要选支持工具调用的模型。<b>写作、角色扮演类模型(名字里带 magnum / dolphin 这类)不支持工具调用</b>,选了会直接报错。</div>
+
+<h2>没装 Cherry Studio?手动配置(任何 OpenAI 兼容客户端都一样)</h2>
+<table>
+  <tr><th style="width:34%">项目</th><th>填什么</th></tr>
+  <tr><td>服务商类型</td><td>OpenAI(或"OpenAI 兼容")</td></tr>
+  <tr><td>API 地址 / Base URL</td><td><code>https://macdecloud.com/v1</code>(<b>要带 /v1</b>)</td></tr>
+  <tr><td>API Key</td><td>你自己的 <code>dcld-sk-…</code></td></tr>
+  <tr><td>模型名</td><td><code>deepseek/deepseek-v4-pro</code>(要写完整 ID)</td></tr>
+</table>
+<div class="warn"><b>注意</b>:不要编辑客户端里内置的「OpenAI」那一项(它的地址固定是 api.openai.com,填我们的 Key 会报"密钥不正确")。<b>请新加一个自定义服务商</b>。</div>
+
+<h2>常见报错</h2>
+<table>
+  <tr><th style="width:20%">返回</th><th style="width:30%">含义</th><th>怎么办</th></tr>
+  <tr><td><code>401</code></td><td>Key 无效</td><td>检查有没有多空格、前缀是否完整</td></tr>
+  <tr><td><code>402</code></td><td>余额不足</td><td>先去控制台充值一点(余额为 0 时,连免费模型也会返回 402)</td></tr>
+  <tr><td><code>403</code></td><td>该模型未开通 / 额度用尽</td><td>换个模型试试</td></tr>
+  <tr><td><code>404</code></td><td>模型名不存在</td><td>模型名要写完整 ID(带厂商前缀),例如 <code>deepseek/deepseek-v4-pro</code></td></tr>
+  <tr><td><code>429</code></td><td>请求太频繁</td><td>等几秒重试</td></tr>
+  <tr><td><code>400</code> <br>upstream provider rejected</td><td>该模型不支持这类请求</td><td>多半是模型不支持工具调用 —— 换成上面推荐的那几个</td></tr>
+</table>
+
+<footer>deCloud · 自助接入工具 · 仅在你本机浏览器运行,不收集任何信息</footer>
+</div>
+<script>
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function buildLink(key){
+  var payload = {id:'decloud', name:'deCloud', type:'openai', baseUrl:'https://macdecloud.com/v1', apiKey:key};
+  var b64 = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  return 'cherrystudio://providers/api-keys?v=1&data=' + encodeURIComponent(b64);
+}
+function gen(){
+  var k = document.getElementById('k').value.trim();
+  if(!k){ alert('请先粘贴你的 API Key(dcld-sk- 开头)'); return; }
+  var link = buildLink(k);
+  var a = document.getElementById('lnk');
+  a.href = link; a.textContent = link;
+  document.getElementById('out').style.display = 'block';
+  document.getElementById('cpmsg').textContent = '';
+}
+function cp(){
+  var link = document.getElementById('lnk').href;
+  var m = document.getElementById('cpmsg');
+  var done = function(){ m.textContent = '已复制'; setTimeout(function(){ m.textContent=''; },1500); };
+  if(navigator.clipboard) navigator.clipboard.writeText(link).then(done, function(){ m.textContent='复制失败,请手动选中链接复制'; });
+  else m.textContent='请手动选中链接复制';
+}
+</script>
+</body></html>
