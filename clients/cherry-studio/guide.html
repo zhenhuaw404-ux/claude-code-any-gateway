@@ -1,133 +1,109 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>在 Cherry Studio 里使用 deCloud</title>
+<title>不必一家家注册账号 · Cherry Studio</title>
 <style>
 @font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 55 Regular");font-weight:400}
 @font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 65 Medium");font-weight:500}
 @font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 75 SemiBold");font-weight:600}
 @font-face{font-family:"PHT";src:local("Alibaba PuHuiTi 2.0 95 ExtraBold");font-weight:800}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#F5F5F7;--card:#fff;--ink:#0E0E12;--mid:#52525F;--low:#6E6E7E;--line:#E3E3EA;--g50:#E5FBEA;--g800:#14802E;--code:#F0F0F3}
-body{background:var(--bg);color:var(--ink);font-family:"PHT","Alibaba PuHuiTi 2.0","HarmonyOS Sans SC","PingFang SC",sans-serif;font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto;padding:26px 20px 64px}
-.hero{background:linear-gradient(160deg,#0F131A,#141C27 60%,#182231);color:#fff;border-radius:18px;padding:26px 26px 24px}
-.hero .tag{display:inline-block;font-size:12.5px;letter-spacing:.08em;color:#8CF3A6;border:1px solid rgba(140,243,166,.4);border-radius:999px;padding:3px 12px}
-.hero h1{margin:12px 0 6px;font-size:25px;font-weight:800;letter-spacing:-.02em}
-.hero p{color:#B9C2D0;font-size:14.5px}
-h2{font-size:20px;font-weight:700;margin:32px 0 12px;padding-top:22px;border-top:1px solid var(--line)}
-h2:first-of-type{border-top:none;padding-top:0}
-.lead{color:var(--mid);font-size:14.5px;margin:16px 0 20px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:0 0 16px;overflow:hidden}
-.step .sh{display:flex;align-items:center;gap:12px;padding:15px 20px;background:#FBFBFC;border-bottom:1px solid var(--line)}
-.step .sh .n{flex:none;width:26px;height:26px;border-radius:8px;background:#0E0E12;color:#fff;font:800 13px/26px "PHT",sans-serif;text-align:center}
-.step .sh h3{margin:0;font-size:18px;font-weight:700}
-.step .sh .note{margin-left:auto;font-size:13px;color:var(--low);white-space:nowrap}
-.step .sb{padding:18px 20px 20px}
-p{margin:10px 0}
+:root{
+  --bg:#F5F5F7;--card:#fff;--ink:#0E0E12;--mid:#52525F;--low:#6E6E7E;--line:#E3E3EA;
+  --g50:#E5FBEA;--g800:#14802E;--code:#F0F0F3;
+  --fs-h1:26px;--fs-h2:21px;--fs-label:14.5px;--fs-body:16.5px;--fs-sm:13.5px;--fs-xs:12.5px;
+  --lh-tight:1.3;--lh-ui:1.6;--lh-body:1.8;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:40px;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-pill:999px;
+}
+body{background:var(--bg);color:var(--ink);font-family:"PHT","Alibaba PuHuiTi 2.0","HarmonyOS Sans SC","PingFang SC",sans-serif;font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:var(--s5) 20px 64px}
+.hero{background:linear-gradient(160deg,#0F131A,#141C27 60%,#182231);color:#fff;border-radius:var(--r-lg);padding:var(--s5)}
+.hero .tag{display:inline-block;font-size:var(--fs-xs);letter-spacing:.08em;color:#8CF3A6;border:1px solid rgba(140,243,166,.4);border-radius:var(--r-pill);padding:var(--s1) var(--s3)}
+.hero h1{margin:var(--s3) 0 var(--s2);font-size:var(--fs-h1);font-weight:800;line-height:var(--lh-tight);letter-spacing:-.02em}
+.hero p{color:#B9C2D0;font-size:var(--fs-label);line-height:var(--lh-ui)}
+h2{font-size:var(--fs-h2);font-weight:800;line-height:var(--lh-tight);letter-spacing:-.01em;margin:var(--s7) 0 var(--s3);padding-top:var(--s5);border-top:1px solid var(--line)}
+h2:first-of-type{margin-top:var(--s5);padding-top:0;border-top:none}
+p{margin:var(--s3) 0}
 b{font-weight:600}
 a{color:var(--g800)}
-code{background:var(--code);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font:13.5px/1.6 ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;background:#fff;table-layout:fixed}
-th,td{text-align:left;padding:11px 13px;border-bottom:1px solid #ECECF1;vertical-align:top;word-break:break-word}
-th{background:var(--code);font-size:13.5px;color:var(--mid);font-weight:600}
+code{background:var(--code);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:var(--fs-sm);overflow-wrap:anywhere}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5);margin:var(--s4) 0}
+.card>:first-child{margin-top:0}
+.card>:last-child{margin-bottom:0}
+ol,ul{margin:var(--s3) 0 var(--s3) 22px}
+li{margin:var(--s2) 0}
+table{width:100%;border-collapse:collapse;margin:var(--s4) 0;font-size:var(--fs-label);background:#fff;table-layout:fixed}
+th,td{text-align:left;padding:var(--s3);border-bottom:1px solid #ECECF1;vertical-align:top;word-break:break-word}
+th{background:var(--code);font-size:var(--fs-sm);color:var(--mid);font-weight:600}
 tr:last-child td{border-bottom:none}
-.tip{background:var(--g50);border-left:4px solid var(--g800);border-radius:10px;padding:12px 15px;margin:14px 0;color:#0B4A26;font-size:15px}
-.warn{background:#FFF7E6;border-left:4px solid #B7791F;border-radius:10px;padding:12px 15px;margin:14px 0;color:#6B4A11;font-size:15px}
-.cta{display:inline-block;background:#0E0E12;color:#fff;text-decoration:none;border-radius:999px;padding:11px 22px;font-size:15px;font-weight:600}
-ol,ul{margin:10px 0 10px 22px}li{margin:6px 0}
-footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);color:var(--low);font-size:13px}
-@media (max-width:600px){.step .sh .note{display:none}.hero h1{font-size:21px}table{font-size:14px}}
+.tip{background:var(--g50);border-left:4px solid var(--g800);border-radius:var(--r-md);padding:var(--s3) var(--s4);margin:var(--s4) 0;color:#0B4A26;font-size:var(--fs-label)}
+.warn{background:#FFF7E6;border-left:4px solid #B7791F;border-radius:var(--r-md);padding:var(--s3) var(--s4);margin:var(--s4) 0;color:#6B4A11;font-size:var(--fs-label)}
+.note{color:var(--low);font-size:var(--fs-sm)}
+.foot{text-align:center;margin:var(--s6) 0 var(--s2);color:var(--low);font-size:var(--fs-label)}
+@media (max-width:600px){.wrap{padding:var(--s4) 14px 48px}.hero{padding:var(--s4)}.hero h1{font-size:var(--fs-h2)}table{font-size:var(--fs-sm)}}
 </style></head><body><div class="wrap">
 
 <div class="hero">
-  <span class="tag">接入指南</span>
-  <h1>在 Cherry Studio 里使用 deCloud</h1>
-  <p>一个 API Key,调用全球多种 AI 模型 —— 连同图像、视频、语音在内,账单都在一个地方</p>
+  <span class="tag">Cherry Studio</span>
+  <h1>不必一家家注册账号</h1>
+  <p>在 Cherry Studio 里加一把 Key,就能用上多家模型 —— 想换哪家,改一个地址就行。</p>
 </div>
 
-<p class="lead">这份指南带你把 deCloud 接到 Cherry Studio 上。<b>第一次用大约 5 分钟</b>,分三步:准备账户 → 生成 API Key → 填进客户端。</p>
-
-<h2>开始之前:你需要一个钱包和一点余额</h2>
-<p>deCloud 用<b>钱包签名登录</b> —— <b>不需要注册账号、不需要邮箱</b>,连上钱包就是你的账户。支持 MetaMask、OKX Wallet、TokenPocket、imToken 以及浏览器钱包。</p>
-<div class="warn"><b>两个前提,缺一不可</b>:
-<ol style="margin-bottom:0">
-  <li>控制台里<b>创建一个 API Key</b>(下面第 2 步教);</li>
-  <li><b>账户里要有余额</b> —— 余额为 0 时,连免费的模型也会被拒绝(返回 <code>402</code>)。所以请先在控制台按提示充一点,够你试跑就行。</li>
-</ol></div>
-
-<h2>三步接入</h2>
-
-<div class="step">
-  <div class="sh"><span class="n">1</span><h3>进控制台,连接钱包</h3><span class="note">约 1 分钟</span></div>
-  <div class="sb">
-    <p>打开 <a href="https://macdecloud.com">https://macdecloud.com</a> → 右上角 <b>连接钱包</b> → 选一个钱包并签名确认。</p>
-    <p>连上之后就能看到你的账户、余额和用量。<b>如果余额是 0</b>,在这里按页面提示充值(控制台里提供了跨链向导,支持从 BNB Smart Chain 转入)。</p>
-    <div class="warn">跨链操作有风险,请仔细核对<b>目标地址和数量</b> —— 交易一旦确认无法撤销。先充一小笔,够跑通就行。</div>
-  </div>
+<h2>先拿到那把 Key</h2>
+<div class="card">
+  <ol>
+    <li><b>连钱包登录</b>:打开 <a href="https://macdecloud.com/i/DC-195M8CX">macdecloud.com</a> → 点「连接钱包」→ 签个名就进去了。<b>不用注册账号、不用邮箱</b>;签名只证明钱包是你的,不转账、不花手续费。</li>
+    <li><b>领体验额度</b>:把控制台里<b>你登录用的那个钱包地址</b>发给客服 —— 微信公众号「deCloud」留言即可,会给你开体验额度。
+      <div class="warn"><b>这一步不能跳</b>:余额为 0 时,连单价为 0 的免费模型也会被拒(返回 <code>402</code>)。发地址时别发错 —— 要的是<b>你登录用的钱包地址</b>,不是充值页里那个「充值地址」(那是平台收款地址,认不出你是谁)。</div>
+    </li>
+    <li><b>建一个 API Key</b>:控制台 → API Keys → 新建 → 复制。一串 <code>dcld-sk-</code> 开头的东西,<b>只完整显示一次</b>;别写进代码、别截图外发。</li>
+  </ol>
 </div>
 
-<div class="step">
-  <div class="sh"><span class="n">2</span><h3>创建一个 API Key</h3><span class="note">约 1 分钟</span></div>
-  <div class="sb">
-    <p>在控制台里找到 <b>API Keys</b> → 新建一个,复制出来。它会是一串 <code>dcld-sk-</code> 开头的东西。</p>
-    <ul>
-      <li>这串 Key 就是你的凭证,<b>别发给别人、别写进代码仓库</b>;怀疑泄露就在控制台里重新生成一个;</li>
-      <li>同一个账户可以建多个 Key(比如给不同设备/项目各一个)。</li>
-    </ul>
-  </div>
+<h2>接进 Cherry Studio</h2>
+<p>两条路,<b>选一条就行</b>。</p>
+
+<div class="card">
+  <p><b>方式 A:一键接入(推荐,最少手填)</b></p>
+  <ol>
+    <li>打开这个网页:<a href="https://zhenhuaw404-ux.github.io/claude-code-any-gateway/clients/cherry-studio/generator.html">一键接入生成器</a>,把上面那把 Key 粘进去,点「生成接入链接」;</li>
+    <li><b>先把 Cherry Studio 打开、放在最前面</b> —— 这条链接<b>不会自动把窗口调到前台</b>,所以它得先醒着,否则看起来像"点了没反应";</li>
+    <li>点生成出来的那条链接(或复制后粘到浏览器地址栏回车);</li>
+    <li>Cherry Studio 会跳到「设置 → 模型服务商」并弹确认框:<b>「是否要为 deCloud 添加 API 密钥?」</b> → 点确认;</li>
+    <li>列表里出现 <b>deCloud</b> → 点右边「获取模型列表」→ 选一个模型就能用了。</li>
+  </ol>
+  <p class="note">生成器在你自己的浏览器里跑,<b>Key 不出本地、页面不联网</b>。</p>
 </div>
 
-<div class="step">
-  <div class="sh"><span class="n">3</span><h3>填进 Cherry Studio</h3><span class="note">约 2 分钟</span></div>
-  <div class="sb">
-    <p>有两条路,任选一条。</p>
-    <p><b>方式 A:一键接入(推荐)</b></p>
-    <ol>
-      <li>打开自助工具页:<b>一键接入生成器</b>,把你的 Key 粘进去,点「生成接入链接」;</li>
-      <li><b>先把 Cherry Studio 窗口打开、放在最前面</b>(重要:这条链接不会自动把窗口调到前台);</li>
-      <li>点生成出来的那条链接(或复制后粘到浏览器地址栏回车);</li>
-      <li>Cherry Studio 会跳到「设置 → 模型服务商」,弹出确认框:<b>「是否要为 deCloud 添加 API 密钥?」</b> → <b>点确认</b>;</li>
-      <li>列表里出现 <b>deCloud</b> → 点右边的「获取模型列表」→ 选一个模型就能用了。</li>
-    </ol>
-    <p style="margin-top:16px"><b>方式 B:手动填(任何 OpenAI 兼容客户端都一样)</b></p>
-    <ol>
-      <li>Cherry Studio → 设置 → <b>模型服务商</b> → <b>添加</b>(不是编辑内置的“OpenAI”那一项);</li>
-      <li>类型选 <b>OpenAI</b>(或“OpenAI 兼容”);</li>
-      <li>名称随便填(建议 <b>deCloud</b>);</li>
-      <li><b>API 地址</b>填 <code>https://macdecloud.com/v1</code>(<b>要带 /v1</b>);</li>
-      <li><b>API 密钥</b>填你的 Key;</li>
-      <li>点「获取模型列表」→ 选一个模型 → 开始对话。</li>
-    </ol>
-    <div class="warn"><b>别把我们的 Key 填进内置的「OpenAI」那一项</b>:它的地址固定是 <code>api.openai.com</code>,会报“密钥不正确”。请务必<b>新加一个自定义服务商</b>。</div>
-  </div>
+<div class="card">
+  <p><b>方式 B:手动填(四步)</b></p>
+  <ol>
+    <li><b>设置 → 模型服务商 → 添加</b>(是"添加",不是编辑内置的那一项);</li>
+    <li>类型选 <b>OpenAI</b>(有的版本叫"OpenAI 兼容"),名称随便填,建议就叫 <code>deCloud</code>;</li>
+    <li><b>API 地址</b>填 <code>https://macdecloud.com/v1</code>(要带 <code>/v1</code>);<b>API 密钥</b>填你的 <code>dcld-sk-…</code>;</li>
+    <li>点「获取模型列表」→ 选 <code>deepseek/deepseek-v4-pro</code> → 开始对话。</li>
+  </ol>
 </div>
+
+<div class="warn"><b>别改内置的「OpenAI」那一项</b> —— 它的地址固定是 <code>api.openai.com</code>,会报"密钥不正确"。请新加一个服务商。</div>
 
 <h2>选哪个模型</h2>
-<table>
-  <tr><th style="width:40%">你的场景</th><th>推荐</th></tr>
-  <tr><td>日常对话、写作、翻译</td><td><code>deepseek/deepseek-v4-pro</code>(便宜、上下文大,通用首选)</td></tr>
-  <tr><td>要跑 Agent / Claude Code —— 会自动调用工具的功能</td><td><code>deepseek/deepseek-v4-pro</code> · <code>deepseek/deepseek-v4-flash</code> · <code>moonshotai/kimi-k3</code> · <code>z-ai/glm-5.2</code> · <code>qwen/qwen3-coder</code> · <code>anthropic/claude-sonnet-4.5</code> · <code>openai/gpt-5</code></td></tr>
-  <tr><td>生成图片 / 视频 / 语音</td><td>在 <a href="https://macdecloud.com/models">模型页</a>按类型筛选;调用方式见文档</td></tr>
-</table>
-<div class="tip"><b>一个要点</b>:Agent、Claude Code 这类功能靠“工具调用”干活,所以要选<b>支持工具调用</b>的模型。写作、角色扮演类模型(名字里带 <code>magnum</code>、<code>dolphin</code> 这类)不支持工具调用,选了会报 400。</div>
+<div class="warn"><b>一个实测踩过的坑</b>:模型列表拉下来之后,默认选中的可能是个<b>名字排序靠前的写作向模型</b>(例如 <code>anthracite-org/magnum-v4-72b</code>)。它<b>不支持工具调用</b>,拿它跑 Agent 或 Claude Code 会报 <code>400 the upstream provider rejected this request</code> —— <b>手动把默认模型改成 <code>deepseek/deepseek-v4-pro</code> 就好</b>。</div>
+<p>日常对话、写作、翻译,用 <code>deepseek/deepseek-v4-pro</code> 就行(通用首选)。要跑 Agent / Claude Code,必须选<b>支持工具调用</b>的:<code>deepseek/deepseek-v4-pro</code> · <code>deepseek/deepseek-v4-flash</code> · <code>moonshotai/kimi-k3</code> · <code>z-ai/glm-5.2</code> · <code>qwen/qwen3-coder</code>。想先用免费的,<code>nvidia/nemotron-3-super-120b-a12b:free</code> 这类也行(免费档上游会限流,报 <code>429</code> 就等几秒重试)。</p>
 
-<h2>常见报错对照</h2>
+<h2>撞到报错看这里</h2>
 <table>
-  <tr><th style="width:22%">返回</th><th style="width:28%">含义</th><th>怎么办</th></tr>
-  <tr><td><code>401</code></td><td>Key 无效</td><td>检查有没有多空格、前缀是否完整</td></tr>
-  <tr><td><code>402</code></td><td>余额不足</td><td>去控制台充值(余额为 0 时,免费模型也会被拒)</td></tr>
-  <tr><td><code>403</code></td><td>该模型未开通 / 额度用尽</td><td>换个模型试试</td></tr>
+  <tr><th style="width:26%">返回</th><th style="width:26%">含义</th><th>怎么办</th></tr>
+  <tr><td><code>401</code></td><td>Key 无效</td><td>检查有没有多空格、前缀 <code>dcld-sk-</code> 是否完整</td></tr>
+  <tr><td><code>402</code></td><td>余额不足</td><td>走上面第 2 步领额度(余额为 0 时免费模型也会被拒)</td></tr>
   <tr><td><code>404</code></td><td>模型名不存在</td><td>模型名要写<b>完整 ID</b>(带厂商前缀),例如 <code>deepseek/deepseek-v4-pro</code></td></tr>
-  <tr><td><code>429</code></td><td>请求太频繁</td><td>等几秒重试(免费模型更容易遇到)</td></tr>
-  <tr><td><code>400</code> + upstream provider rejected</td><td>该模型不支持这类请求</td><td>多半是模型不支持工具调用 —— 换成上表推荐的那几个</td></tr>
+  <tr><td><code>429</code></td><td>请求太频繁 / 上游限流</td><td>等几秒重试,降低并发(免费档更容易遇到)</td></tr>
+  <tr><td><code>400</code> + upstream provider rejected</td><td>该模型不支持这类请求</td><td>多半是模型不支持工具调用 —— 换成上面推荐的那几个</td></tr>
+  <tr><td>一直转圈 / 连不上</td><td>地址写错</td><td>必须是 <code>https://macdecloud.com/v1</code>:要带 <code>/v1</code>,<b>末尾不要自己再加 <code>/chat/completions</code></b></td></tr>
 </table>
-<div class="tip"><b>地址一定写全</b>:<code>https://macdecloud.com/v1</code>。要带 <code>/v1</code>,但<b>末尾不要自己再加</b> <code>/chat/completions</code> —— 客户端会自己补。</div>
 
-<h2>其它客户端</h2>
-<p>只要是支持 <b>OpenAI 兼容接口</b>的工具都能接:NextChat、Chatbox、LobeChat、Open WebUI,以及 Claude Code、Codex 等命令行工具。填法都一样 —— 接口地址 <code>https://macdecloud.com/v1</code> + 你的 Key。具体配置可查看官网的「客户端」页面。</p>
+<div class="tip">卡住了就直接问,别自己硬扛:微信公众号 <b>「deCloud」</b> 留言。带上报错原文、时间、模型 ID,并给 Key 打码。</div>
 
-<p style="text-align:center;margin:26px 0 6px"><a class="cta" href="https://macdecloud.com">进入控制台 →</a></p>
-<p style="text-align:center;color:var(--low);font-size:14px">卡在哪一步?在官网或社群留言,我们帮你看看。</p>
+<p class="foot">控制台:<a href="https://macdecloud.com/i/DC-195M8CX">https://macdecloud.com/i/DC-195M8CX</a></p>
 
-<footer>deCloud · 接入指南 · 更新 2026-09-15 · 模型与价格以官网实时页面为准</footer>
 </div></body></html>
